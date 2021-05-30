@@ -1,0 +1,38 @@
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+.container-item{
+  flex: auto;
+}
+.parent{
+  position: relative;
+  top:60px;
+  display: flex;
+  flex-direction: row;
+}
+.table-conatiner{
+  margin-top: 20px;
+  width: 100%;
+}
