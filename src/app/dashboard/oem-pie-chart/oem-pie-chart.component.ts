@@ -1,19 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as d3 from 'd3';
+import { TestData } from 'src/app/data/data-type';
 
 @Component({
   selector: 'app-oem-pie-chart',
   templateUrl: './oem-pie-chart.component.html',
   styleUrls: ['./oem-pie-chart.component.scss']
 })
-export class OemPieChartComponent implements OnInit {
+export class OemPieChartComponent implements OnInit ,OnChanges{
 
   constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    if(this.svg){
+      this.inputData = changes.inputData.currentValue;
+      this.svg.remove();
+      this.plotChart();
+    }
+  }
   private data = [
     {"status": "Passed", "number_of_test_cases": "64"},
     {"status": "Failed", "number_of_test_cases": "31"},
     {"status": "Invalid", "number_of_test_cases": "5"},
   ];
+  @Input() inputData:TestData[] =[];
   private svg;
   private margin = 20;
   private width = 250;
@@ -99,6 +109,23 @@ export class OemPieChartComponent implements OnInit {
 
 }
   ngOnInit(): void {
+    this.plotChart()
+  }
+
+  plotChart(){
+    let str = "Status";
+    let data_converted = this.inputData.reduce((acc, value) => {
+      // Group initialization
+      if (!acc[value[str]]) {
+        acc[value[str]] = [];
+      }
+      // Grouping
+      acc[value[str]].push(value);
+      return acc;
+    }, {});
+    this.data = Object.keys(data_converted).map((ele)=>{
+        return {"status":ele,"number_of_test_cases":data_converted[ele].length}
+    })
     this.createSvg();
     this.createColors();
     this.drawChart();

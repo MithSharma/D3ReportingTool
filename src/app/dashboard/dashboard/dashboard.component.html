@@ -1,0 +1,38 @@
+<div class="toolbar" role="banner">
+  <div class="img">
+    <img
+    width="40"
+    alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+  />
+  <span>{{title}}</span>
+  </div>
+  <div class="right-side-container">
+    <div class="import_excel_container">
+      <label for="import_excel">Upload Excel</label>
+      <input type="file" id="import_excel" (change)="loadFileXLSX($event)">
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label class="text-color">Quater</mat-label>
+      <mat-select (selectionChange)="changeQuater($event)" [(value)]="selected">
+        <mat-option *ngFor="let quater of quaterArray" [value]="quater" >
+          {{quater.split("_")[quater.split("_").length-1]}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- <button (click)="onLogout()">Logout</button> -->
+  </div>
+</div>
+<div class="parent">
+  <div class="container">
+    <div class="container-item">
+      <app-oem-pie-chart [inputData]="inputData"></app-oem-pie-chart>
+    </div>
+    <div class="container-item">
+      <app-oem-stacked-bar-chart [inputData]="inputData"></app-oem-stacked-bar-chart>
+    </div>
+  </div>
+  <div class="table-conatiner">
+    <app-oem-mat-table [inputData]="inputData"></app-oem-mat-table>
+  </div>
+</div>

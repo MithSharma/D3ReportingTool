@@ -1,25 +1,30 @@
-import { Component, AfterViewInit,ViewChild } from '@angular/core';
-import {TestDataValue} from "../data/data";
-import { TestData } from '../data/data-type'
+import { Component, AfterViewInit,ViewChild, Input, SimpleChanges } from '@angular/core';
+import {TestDataValue} from "../../data/data";
+import { TestData } from '../../data/data-type'
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import { DataService } from '../data/data.service';
+import { DataService } from '../../data/data.service';
+import { OnChanges } from '@angular/core';
 
-const local_data:TestData[] = TestDataValue.System_Test_Result_Q1;
 
 @Component({
   selector: 'app-oem-mat-table',
   templateUrl: './oem-mat-table.component.html',
   styleUrls: ['./oem-mat-table.component.scss']
 })
-export class OemMatTableComponent implements AfterViewInit{
+export class OemMatTableComponent implements AfterViewInit, OnChanges{
   constructor(private dataService:DataService) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.dataSource = new MatTableDataSource<TestData>(changes.inputData.currentValue)
+  }
+  @Input() inputData:TestData[];
   displayedColumns: string[] = ['System_Name', 'Test_Case_ID', 'Status', 'Comments'];
-  dataSource = new MatTableDataSource<TestData>(local_data);
+  dataSource:any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
   filter:string=""
   ngAfterViewInit() {
-
+    this.dataSource = new MatTableDataSource<TestData>(this.inputData);
     this.dataService.missionAnnounced$.subscribe(data=>{
       this.dataSource.filter = data as string ;
     })

@@ -1,32 +1,32 @@
 export const TestDataValue = {
   "System_Test_Result_Q1": [
       {
-          "System_Name": "Brake",
+          "System_Name": "Cooling",
           "Test_Case_ID": "Test Case _1",
-          "Status": "Passed"
+          "Status": "Failed"
       },
       {
-          "System_Name": "Brake",
+          "System_Name": "Cooling",
           "Test_Case_ID": "Test Case _2",
-          "Status": "Passed"
+          "Status": "Failed"
       },
       {
-          "System_Name": "Brake",
+          "System_Name": "Cooling",
           "Test_Case_ID": "Test Case _3",
-          "Status": "Passed",
+          "Status": "Failed",
       },
       {
-          "System_Name": "Brake",
+          "System_Name": "Cooling",
           "Test_Case_ID": "Test Case _4",
           "Status": "Passed"
       },
       {
-          "System_Name": "Brake",
+          "System_Name": "Cooling",
           "Test_Case_ID": "Test Case _5",
           "Status": "Passed"
       },
       {
-          "System_Name": "Brake",
+          "System_Name": "Cooling",
           "Test_Case_ID": "Test Case _6",
           "Status": "Passed",
       },
@@ -48,54 +48,54 @@ export const TestDataValue = {
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _10",
-          "Status": "Failed",
+          "Status": "Passed",
           "Comments": "Due to lack of Parameter",
       },
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _11",
-          "Status": "Failed",
+          "Status": "Passed",
           "Comments": "Due to Precondition error"
       },
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _12",
-          "Status": "Failed",
+          "Status": "Passed",
       },
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _13",
-          "Status": "Failed"
+          "Status": "Passed"
       },
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _14",
-          "Status": "Failed"
+          "Status": "Passed"
       },
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _15",
-          "Status": "Failed"
+          "Status": "Passed"
       },
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _16",
-          "Status": "Failed"
+          "Status": "Passed"
       },
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _17",
-          "Status": "Failed"
+          "Status": "Passed"
       },
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _18",
-          "Status": "Failed"
+          "Status": "Passed"
       },
       {
           "System_Name": "Brake",
           "Test_Case_ID": "Test Case _19",
-          "Status": "Failed"
+          "Status": "Passed"
       },
       {
           "System_Name": "Brake",
